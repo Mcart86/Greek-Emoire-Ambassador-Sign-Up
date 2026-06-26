@@ -181,17 +181,67 @@ footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1
 
 @keyframes goldShimmer { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
 .gold-gradient { background: linear-gradient(90deg, #8B6914 0%, #D4A43A 25%, #F0C040 50%, #D4A43A 75%, #8B6914 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  nav { padding: 1rem 1.25rem; }
-  section { padding: 4rem 1.25rem; }
+
+@media (max-width: 768px) {
+  /* NAV */
+  nav { padding: 0.6rem 1.25rem; }
+
+  /* HERO */
+  .hero { min-height: 90vh; padding: 6rem 1.25rem 3rem; }
+  .hero-eyebrow { font-size: 9px; letter-spacing: 0.18em; }
+  .hero img[src="logo.png"] { width: min(85vw, 340px) !important; }
+  .hero-sub { font-size: clamp(1.1rem, 5vw, 1.6rem); }
+  .hero-desc { font-size: 14px; margin-bottom: 2rem; }
+
+  /* SECTIONS */
+  section { padding: 3.5rem 1.25rem; }
+  .section-eyebrow { font-size: 0.72rem; }
+
+  /* ABOUT */
+  .about-body { font-size: 0.9rem; letter-spacing: 0.06em; }
+
+  /* BENEFITS */
   .benefits-grid { grid-template-columns: 1fr; }
+  .benefit-card { padding: 1.5rem 1.25rem; }
+
+  /* EARN */
   .earn-cards { grid-template-columns: 1fr; }
-  .expect-list { grid-template-columns: repeat(2, 1fr); }
+  .example-earnings { flex-direction: column; gap: 0.5rem; padding: 1rem; }
+  .example-earnings .eg-items { flex-direction: column; gap: 0.4rem; align-items: center; }
+
+  /* EXPECT */
+  .expect-list { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .expect-list li { font-size: 0.8rem; padding: 0.9rem; }
+
+  /* FORM */
+  .form-wrapper { padding: 1.25rem; margin: 1.5rem auto 0; }
   .field-grid { grid-template-columns: 1fr; }
   .field-grid .full { grid-column: 1; }
-  .form-wrapper { padding: 1.5rem; }
-  .stats-bar { flex-direction: column; }
-  .stat-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); max-width: 100%; }
-  .stat-item:last-child { border-bottom: none; }
+  .agree-row { font-size: 13px; padding: 0.75rem 0.9rem; }
+  #sigCanvas { height: 100px; }
+  .submit-btn { font-size: 12px; height: 46px; }
+
+  /* MARQUEE */
+  .marquee-item { font-size: 0.8rem; padding: 0 1.25rem; }
+
+  /* FOOTER */
+  .site-footer { padding: 3rem 1.25rem 2rem; }
+  .footer-brand-logo { height: 55px; }
+  .footer-social-bar { gap: 1.25rem; padding: 1.25rem 0; }
+  .footer-social-bar a { font-size: 0.7rem; }
+  .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; }
+}
+
+@media (max-width: 480px) {
+  /* Extra small phones */
+  .hero { padding: 5.5rem 1rem 2.5rem; }
+  .nav-logo img { height: 36px; }
+  .expect-list { grid-template-columns: 1fr; }
+  .section-title { font-size: clamp(2rem, 8vw, 3rem); }
+  .benefit-card h3, .earn-card h3 { font-size: 1rem; }
+  .form-wrapper { padding: 1rem; border-radius: 8px; }
+  .footer-social-bar { gap: 1rem; }
+  .footer-social-bar a { font-size: 0.65rem; letter-spacing: 0.12em; }
 }
 </style>
 </head>
