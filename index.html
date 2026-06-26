@@ -109,7 +109,7 @@ section { padding: 6rem 2rem; }
 .ack-note { font-size: 13px; background: linear-gradient(90deg, #8B6914 0%, #D4A43A 25%, #F0C040 50%, #D4A43A 75%, #8B6914 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.6; margin-bottom: 2rem; padding: 0.9rem 1.1rem; border-left: 2px solid var(--gold); background-color: rgba(201,168,76,0.08); border-radius: 0 var(--radius) var(--radius) 0; }
 .sig-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; display: block; }
 .sig-hint-text { font-weight: 400; text-transform: none; letter-spacing: 0; color: rgba(138,136,128,0.45); font-size: 11px; }
-.sig-wrap { position: relative; border: 1px solid rgba(201,168,76,0.3); border-radius: var(--radius); background: #0e0e0c; overflow: hidden; margin-bottom: 6px; }
+.sig-wrap { position: relative; border: 1px solid rgba(201,168,76,0.3); border-radius: var(--radius); background: #ffffff; overflow: hidden; margin-bottom: 6px; }
 #sigCanvas { display: block; width: 100%; height: 120px; cursor: crosshair; touch-action: none; }
 .sig-placeholder { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 13px; color: rgba(138,136,128,0.35); pointer-events: none; user-select: none; transition: opacity 0.2s; }
 .sig-clear { background: none; border: none; font-size: 12px; color: var(--gray); cursor: pointer; padding: 0; text-decoration: underline; font-family: inherit; margin-bottom: 2rem; display: block; }
@@ -368,7 +368,7 @@ function resizeCanvas() {
   canvas.width = rect.width * dpr;
   canvas.height = 120 * dpr;
   ctx.scale(dpr, dpr);
-  ctx.strokeStyle = '#c9a84c';
+  ctx.strokeStyle = '#0e0e0c';
   ctx.lineWidth = 2;
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
