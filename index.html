@@ -6,7 +6,7 @@
 <title>Greek Empire — Campus Ambassador Program</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -19,11 +19,13 @@
   --gold-border: rgba(201,168,76,0.4);
   --white: #1a1a16;
   --gray: #5a5856;
-  --radius: 4px;
+  --font-display: 'Bebas Neue', 'Impact', sans-serif;
+  --font-script: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Barlow', sans-serif;
 }
 html { scroll-behavior: smooth; }
-body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-h1, h2, h3, h4 { font-family: 'Anton', sans-serif; letter-spacing: 0.02em; text-transform: uppercase; }
+body { background: var(--black); color: var(--white); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: 0.02em; text-transform: uppercase; }
 
 /* NAV */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 2.5rem; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.25); }
@@ -39,7 +41,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); opacity: 0.5; }
 .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(96px, 18vw, 195px); line-height: 0.9; letter-spacing: 0.04em; color: var(--gold); margin-bottom: 0.2em; }
 .hero h1 span { color: var(--gold); }
-.hero-sub { font-family: 'EB Garamond', serif; font-size: 18px; font-weight: 400; font-style: italic; letter-spacing: 0.06em; margin-bottom: 2.5rem; background: linear-gradient(90deg, #a86820 0%, #c9a84c 30%, #f0d080 55%, #e8c96a 75%, #c9a84c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-sub { font-family: var(--font-script); font-size: clamp(1.4rem, 3vw, 2.2rem); font-style: italic; font-weight: 400; letter-spacing: 0.06em; margin-bottom: 2.5rem; background: linear-gradient(90deg, #C9921A 0%, #E8B830 20%, #F5D060 35%, #FFF0A0 50%, #F5D060 65%, #E8B830 80%, #C9921A 100%); background-size: 300% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: goldShimmer 9s linear infinite; }
 .hero-desc { max-width: 560px; font-size: 16px; color: #c8c6c0; line-height: 1.75; margin-bottom: 3rem; }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 .btn-primary { background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2.2rem; border-radius: var(--radius); text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
@@ -57,11 +59,12 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 /* SECTIONS */
 section { padding: 6rem 2rem; }
 .container { max-width: 1100px; margin: 0 auto; }
-.section-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
-.section-title { font-family: 'Anton', sans-serif; font-size: clamp(48px, 7vw, 80px); letter-spacing: 0.02em; text-transform: uppercase; color: var(--gold); line-height: 1; margin-bottom: 1.5rem; }
+.section-eyebrow { font-size: 0.73rem; letter-spacing: 0.45em; text-transform: uppercase; font-weight: 500; color: var(--gold); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 1rem; }
+.section-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+.section-title { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 0.95; letter-spacing: 0.02em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
 
 /* ABOUT */
-.about-body { max-width: 100%; font-size: 18px; color: #3a3836; line-height: 1.8; }
+.about-body { max-width: 100%; font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; color: #3a3836; line-height: 1.85; }
 
 /* BENEFITS */
 .benefits-section { background: var(--off-black); }
@@ -69,8 +72,8 @@ section { padding: 6rem 2rem; }
 .benefit-card { background: var(--off-black); padding: 2rem 1.75rem; transition: background 0.2s; }
 .benefit-card:hover { background: var(--dark); }
 .benefit-num { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--gold); opacity: 0.35; margin-bottom: 0.6rem; line-height: 1; }
-.benefit-card h3 { font-family: 'Anton', sans-serif; font-size: 20px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 0.5rem; }
-.benefit-card p { font-size: 13px; color: #5a5856; line-height: 1.65; }
+.benefit-card h3 { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+.benefit-card p { font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: #5a5856; line-height: 1.7; }
 
 /* EARN */
 .earn-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3.5rem; }
@@ -79,8 +82,8 @@ section { padding: 6rem 2rem; }
 .earn-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); opacity: 0; transition: opacity 0.2s; }
 .earn-card:hover::before { opacity: 1; }
 .earn-card-num { font-family: 'Bebas Neue', sans-serif; font-size: 12px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 0.75rem; }
-.earn-card h3 { font-family: 'Anton', sans-serif; font-size: 24px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 0.75rem; }
-.earn-card p { font-size: 13px; color: #5a5856; line-height: 1.65; }
+.earn-card h3 { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+.earn-card p { font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: #5a5856; line-height: 1.7; }
 .example-earnings { margin-top: 2.5rem; background: var(--gold-dim); border: 1px solid var(--gold-border); border-radius: 8px; padding: 1.25rem 1.75rem; display: flex; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
 .example-earnings .eg-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
 .example-earnings .eg-items { display: flex; flex-wrap: wrap; gap: 1.5rem; }
@@ -137,7 +140,7 @@ footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1
 footer p { font-size: 12px; color: rgba(138,136,128,0.5); letter-spacing: 0.06em; }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
+@keyframes goldShimmer { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
   nav { padding: 1rem 1.25rem; }
   section { padding: 4rem 1.25rem; }
   .benefits-grid { grid-template-columns: 1fr; }
