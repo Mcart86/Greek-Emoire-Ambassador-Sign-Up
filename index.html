@@ -40,7 +40,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 /* HERO */
 .hero { min-height: 65vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6.8rem 2rem 4.25rem; position: relative; overflow: hidden; background: #0e0e0c; }
 .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.06) 0%, transparent 70%); pointer-events: none; }
-.hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.hero-eyebrow { font-size: 1.24rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; background: linear-gradient(90deg, #8B6914 0%, #D4A43A 25%, #F0C040 50%, #D4A43A 75%, #8B6914 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
 .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); opacity: 0.5; }
 .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(96px, 18vw, 195px); line-height: 0.9; letter-spacing: 0.04em; color: var(--gold); margin-bottom: 0.2em; }
 .hero h1 span { color: var(--gold); }
@@ -195,7 +195,7 @@ footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1
 
   /* HERO */
   .hero { min-height: 90vh; padding: 6rem 1.25rem 3rem; }
-  .hero-eyebrow { font-size: 9px; letter-spacing: 0.18em; }
+  .hero-eyebrow { font-size: 0.85rem; letter-spacing: 0.22em; }
   .hero img[src="logo.png"] { width: min(85vw, 340px) !important; }
   .hero-sub { font-size: clamp(1.1rem, 5vw, 1.6rem); }
   .hero-desc { font-size: 14px; margin-bottom: 2rem; }
