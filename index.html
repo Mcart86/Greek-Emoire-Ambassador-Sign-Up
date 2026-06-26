@@ -17,7 +17,7 @@
   --gold-light: #e8c96a;
   --gold-dim: rgba(201,168,76,0.12);
   --gold-border: rgba(201,168,76,0.3);
-  --white: #f5f3ee;
+  --white: #ffffff;
   --gray: #8a8880;
   --radius: 4px;
 }
@@ -35,10 +35,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.07) 0%, transparent 70%); pointer-events: none; }
 .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
 .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); opacity: 0.5; }
-.hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 12vw, 130px); line-height: 0.9; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.2em; }
+.hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 12vw, 130px); line-height: 0.9; letter-spacing: 0.04em; color: var(--gold); margin-bottom: 0.2em; }
 .hero h1 span { color: var(--gold); }
-.hero-sub { font-size: 13px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); margin-bottom: 2.5rem; }
-.hero-desc { max-width: 560px; font-size: 16px; color: #a8a69f; line-height: 1.75; margin-bottom: 3rem; }
+.hero-sub { font-size: 13px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: #d0cec8; margin-bottom: 2.5rem; }
+.hero-desc { max-width: 560px; font-size: 16px; color: #e8e6e0; line-height: 1.75; margin-bottom: 3rem; }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 .btn-primary { background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2.2rem; border-radius: var(--radius); text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
 .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
@@ -56,10 +56,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 section { padding: 6rem 2rem; }
 .container { max-width: 1100px; margin: 0 auto; }
 .section-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
-.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 64px); letter-spacing: 0.05em; color: var(--white); line-height: 1; margin-bottom: 1.5rem; }
+.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 64px); letter-spacing: 0.05em; color: var(--gold); line-height: 1; margin-bottom: 1.5rem; }
 
 /* ABOUT */
-.about-body { max-width: 720px; font-size: 16px; color: #a8a69f; line-height: 1.8; }
+.about-body { max-width: 720px; font-size: 16px; color: #e8e6e0; line-height: 1.8; }
 
 /* BENEFITS */
 .benefits-section { background: var(--off-black); }
@@ -68,7 +68,7 @@ section { padding: 6rem 2rem; }
 .benefit-card:hover { background: var(--dark); }
 .benefit-num { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--gold); opacity: 0.35; margin-bottom: 0.6rem; line-height: 1; }
 .benefit-card h3 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
-.benefit-card p { font-size: 13px; color: var(--gray); line-height: 1.65; }
+.benefit-card p { font-size: 13px; color: #d0cec8; line-height: 1.65; }
 
 /* EARN */
 .earn-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3.5rem; }
@@ -78,7 +78,7 @@ section { padding: 6rem 2rem; }
 .earn-card:hover::before { opacity: 1; }
 .earn-card-num { font-family: 'Bebas Neue', sans-serif; font-size: 12px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 0.75rem; }
 .earn-card h3 { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 0.75rem; }
-.earn-card p { font-size: 13px; color: var(--gray); line-height: 1.65; }
+.earn-card p { font-size: 13px; color: #d0cec8; line-height: 1.65; }
 .example-earnings { margin-top: 2.5rem; background: var(--gold-dim); border: 1px solid var(--gold-border); border-radius: 8px; padding: 1.25rem 1.75rem; display: flex; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
 .example-earnings .eg-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
 .example-earnings .eg-items { display: flex; flex-wrap: wrap; gap: 1.5rem; }
@@ -88,7 +88,7 @@ section { padding: 6rem 2rem; }
 /* EXPECT */
 .expect-section { background: var(--off-black); }
 .expect-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 3rem; }
-.expect-list li { display: flex; align-items: flex-start; gap: 12px; padding: 1rem 1.25rem; background: var(--black); border: 1px solid rgba(201,168,76,0.08); border-radius: var(--radius); font-size: 14px; color: #a8a69f; line-height: 1.55; transition: border-color 0.2s; }
+.expect-list li { display: flex; align-items: flex-start; gap: 12px; padding: 1rem 1.25rem; background: var(--black); border: 1px solid rgba(201,168,76,0.08); border-radius: var(--radius); font-size: 14px; color: #e8e6e0; line-height: 1.55; transition: border-color 0.2s; }
 .expect-list li:hover { border-color: var(--gold-border); }
 .expect-list li::before { content: '—'; color: var(--gold); font-size: 12px; flex-shrink: 0; margin-top: 2px; opacity: 0.6; }
 
@@ -164,10 +164,7 @@ footer p { font-size: 12px; color: rgba(138,136,128,0.5); letter-spacing: 0.06em
   <h1>GREEK<br><span>EMPIRE</span></h1>
   <p class="hero-sub">College Apparel for the Best Years of Your Life</p>
   <p class="hero-desc">Greek Empire is a custom apparel company built specifically for sororities and fraternities. Connect chapters at your school with Greek Empire while gaining experience in sales, marketing, networking, and entrepreneurship.</p>
-  <div class="hero-actions">
-    <a href="#apply" class="btn-primary">Apply Now</a>
-    <a href="#about" class="btn-ghost">Learn More</a>
-  </div>
+
 </section>
 
 <!-- STATS -->
