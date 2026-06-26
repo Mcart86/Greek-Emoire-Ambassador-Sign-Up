@@ -164,20 +164,18 @@ footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1
 /* FOOTER */
 .site-footer { background: #0e0e0c; border-top: 1px solid rgba(201,168,76,0.15); padding: 4rem 3.5rem 2.5rem; }
 .footer-inner { max-width: 1100px; margin: 0 auto; }
-.footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 4rem; margin-bottom: 3rem; flex-wrap: wrap; }
-.footer-brand { flex: 0 0 auto; }
-.footer-brand-logo { height: 44px; width: auto; margin-bottom: 1rem; display: block; }
-.footer-tagline { font-family: var(--font-script); font-style: italic; font-size: 0.95rem; color: rgba(201,168,76,0.6); margin-bottom: 1.25rem; }
+.footer-top { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 3rem; }
+.footer-brand { display: flex; flex-direction: column; align-items: center; }
+.footer-brand-logo { height: 80px; width: auto; margin-bottom: 1rem; display: block; }
+.footer-tagline { font-family: var(--font-script); font-style: italic; font-size: 1rem; color: rgba(201,168,76,0.7); margin-bottom: 1rem; }
 .footer-address { font-family: var(--font-display); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.25); line-height: 2; }
-.footer-nav { display: flex; gap: 5rem; }
-.footer-col-title { font-family: var(--font-display); font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; background: linear-gradient(90deg, #8B6914 0%, #D4A43A 25%, #F0C040 50%, #D4A43A 75%, #8B6914 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.25rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(201,168,76,0.15); }
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-.footer-links a { font-family: var(--font-display); font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(--gold); }
-.footer-social { display: flex; flex-direction: column; gap: 0.6rem; }
-.footer-social a { font-family: var(--font-display); font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
-.footer-social a:hover { color: var(--gold); }
-.footer-bottom { border-top: 1px solid rgba(201,168,76,0.1); padding-top: 1.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer-nav { display: none; }
+.footer-col-title { display: none; }
+.footer-links { display: none; }
+.footer-social-bar { display: flex; align-items: center; justify-content: center; gap: 2rem; padding: 1.75rem 0; border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); margin-bottom: 1.75rem; flex-wrap: wrap; }
+.footer-social-bar a { font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-social-bar a:hover { color: var(--gold); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
 .footer-copy { font-family: var(--font-display); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.18); }
 .footer-est { font-family: var(--font-script); font-style: italic; font-size: 0.9rem; background: linear-gradient(90deg, #8B6914 0%, #D4A43A 25%, #F0C040 50%, #D4A43A 75%, #8B6914 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
@@ -433,30 +431,15 @@ footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1
       <div class="footer-brand">
         <img src="logo2.png" alt="Greek Empire" class="footer-brand-logo">
         <p class="footer-tagline">College Apparel for the Best Years of Your Life</p>
-        <p class="footer-address">
-          281 Benigno Blvd, Bellmawr, NJ 08031
-        </p>
+        <p class="footer-address">281 Benigno Blvd, Bellmawr, NJ 08031</p>
       </div>
-      <div class="footer-nav">
-        <div>
-          <div class="footer-col-title">Program</div>
-          <ul class="footer-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#earn">3 Ways to Earn</a></li>
-            <li><a href="#apply">Apply Now</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-col-title">Follow Us</div>
-          <div class="footer-social">
-            <a href="https://www.tiktok.com/@_greekempire_" target="_blank">TikTok</a>
-            <a href="https://www.instagram.com/_greekempire_" target="_blank">Instagram</a>
-            <a href="https://x.com/GreekEmpire" target="_blank">X / Twitter</a>
-            <a href="https://www.facebook.com/profile.php?id=61577651367741" target="_blank">Facebook</a>
-            <a href="https://snapchat.com/t/EyeRIpim" target="_blank">Snapchat</a>
-          </div>
-        </div>
-      </div>
+    </div>
+    <div class="footer-social-bar">
+      <a href="https://www.tiktok.com/@_greekempire_" target="_blank">TikTok</a>
+      <a href="https://www.instagram.com/_greekempire_" target="_blank">Instagram</a>
+      <a href="https://x.com/GreekEmpire" target="_blank">X / Twitter</a>
+      <a href="https://www.facebook.com/profile.php?id=61577651367741" target="_blank">Facebook</a>
+      <a href="https://snapchat.com/t/EyeRIpim" target="_blank">Snapchat</a>
     </div>
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 Greek Empire · All Rights Reserved</span>
