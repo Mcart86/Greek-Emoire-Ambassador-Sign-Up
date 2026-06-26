@@ -137,10 +137,47 @@ section { padding: 6rem 2rem; }
 
 /* FOOTER */
 footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1); padding: 2.5rem 2rem; text-align: center; }
-.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 0.5rem; }
-footer p { font-size: 12px; color: rgba(138,136,128,0.5); letter-spacing: 0.06em; }
+
 
 /* RESPONSIVE */
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
+
+/* GOLD DIVIDER */
+.gold-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.15) 20%, rgba(201,168,76,0.5) 50%, rgba(201,168,76,0.15) 80%, transparent 100%); }
+
+/* MARQUEE */
+.marquee-strip { background: linear-gradient(90deg, #8B6914 0%, #D4A43A 25%, #F0C040 50%, #D4A43A 75%, #8B6914 100%); padding: 0.75rem 0; overflow: hidden; position: relative; z-index: 10; }
+.marquee-track { display: flex; animation: marqueeScroll 30s linear infinite; width: max-content; }
+.marquee-item { font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0.35em; text-transform: uppercase; color: #0e0e0c; white-space: nowrap; padding: 0 2rem; display: flex; align-items: center; gap: 2rem; }
+.marquee-item::after { content: '·'; font-size: 1rem; opacity: 0.5; }
+@keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* FOOTER */
+.site-footer { background: #0e0e0c; border-top: 1px solid rgba(201,168,76,0.15); padding: 5rem 3.5rem 3rem; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+.footer-brand-logo { height: 60px; width: auto; margin-bottom: 1.25rem; display: block; }
+.footer-tagline { font-family: var(--font-script); font-style: italic; font-size: 1rem; color: rgba(201,168,76,0.7); margin-bottom: 1.5rem; }
+.footer-address { font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); line-height: 1.9; }
+.footer-col-title { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; background: linear-gradient(90deg, #8B6914 0%, #D4A43A 25%, #F0C040 50%, #D4A43A 75%, #8B6914 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.25rem; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.footer-links a { font-family: var(--font-display); font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-social { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.footer-social a { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; border: 1px solid rgba(201,168,76,0.15); padding: 0.35rem 0.75rem; border-radius: 2px; transition: color 0.2s, border-color 0.2s; }
+.footer-social a:hover { color: var(--gold); border-color: var(--gold-border); }
+.footer-bottom { border-top: 1px solid rgba(201,168,76,0.1); padding-top: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer-copy { font-family: var(--font-display); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+.footer-est { font-family: var(--font-script); font-style: italic; font-size: 0.9rem; background: linear-gradient(90deg, #8B6914 0%, #D4A43A 25%, #F0C040 50%, #D4A43A 75%, #8B6914 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
 @keyframes goldShimmer { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
 .gold-gradient { background: linear-gradient(90deg, #8B6914 0%, #D4A43A 25%, #F0C040 50%, #D4A43A 75%, #8B6914 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   nav { padding: 1rem 1.25rem; }
@@ -176,8 +213,36 @@ footer p { font-size: 12px; color: rgba(138,136,128,0.5); letter-spacing: 0.06em
 
 
 
+<!-- DIVIDER -->
+<div class="gold-divider"></div>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="marquee-item">Rush Shirts</span>
+    <span class="marquee-item">Bid Day Drops</span>
+    <span class="marquee-item">Hoodies</span>
+    <span class="marquee-item">Hats</span>
+    <span class="marquee-item">Event Apparel</span>
+    <span class="marquee-item">Chapter Merch</span>
+    <span class="marquee-item">Drinkware</span>
+    <span class="marquee-item">Tailgate Gear</span>
+    <span class="marquee-item">Rush Shirts</span>
+    <span class="marquee-item">Bid Day Drops</span>
+    <span class="marquee-item">Hoodies</span>
+    <span class="marquee-item">Hats</span>
+    <span class="marquee-item">Event Apparel</span>
+    <span class="marquee-item">Chapter Merch</span>
+    <span class="marquee-item">Drinkware</span>
+    <span class="marquee-item">Tailgate Gear</span>
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="gold-divider"></div>
+
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="reveal">
   <div class="container">
     <div class="section-eyebrow">About the Program</div>
 
@@ -185,8 +250,10 @@ footer p { font-size: 12px; color: rgba(138,136,128,0.5); letter-spacing: 0.06em
   </div>
 </section>
 
+<div class="gold-divider"></div>
+
 <!-- WHAT WE PROVIDE -->
-<section class="benefits-section">
+<section class="benefits-section reveal">
   <div class="container">
     <div class="section-eyebrow">What We Provide</div>
 
@@ -225,8 +292,10 @@ footer p { font-size: 12px; color: rgba(138,136,128,0.5); letter-spacing: 0.06em
   </div>
 </section>
 
+<div class="gold-divider"></div>
+
 <!-- 3 WAYS TO EARN -->
-<section id="earn">
+<section id="earn" class="reveal">
   <div class="container">
     <div class="section-eyebrow">3 Ways to Earn</div>
 
@@ -258,8 +327,10 @@ footer p { font-size: 12px; color: rgba(138,136,128,0.5); letter-spacing: 0.06em
   </div>
 </section>
 
+<div class="gold-divider"></div>
+
 <!-- WHAT WE EXPECT -->
-<section class="expect-section">
+<section class="expect-section reveal">
   <div class="container">
     <div class="section-eyebrow">What We Expect</div>
 
@@ -278,8 +349,10 @@ footer p { font-size: 12px; color: rgba(138,136,128,0.5); letter-spacing: 0.06em
   </div>
 </section>
 
+<div class="gold-divider"></div>
+
 <!-- APPLY / SIGN -->
-<section class="form-section" id="apply">
+<section class="form-section reveal" id="apply">
   <div class="container">
     <div style="text-align:center;">
       <div class="section-eyebrow" style="display:flex;justify-content:center;">Program Acknowledgement &amp; Signature</div>
@@ -351,9 +424,42 @@ footer p { font-size: 12px; color: rgba(138,136,128,0.5); letter-spacing: 0.06em
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-logo">Greek Empire</div>
-  <p>College Apparel for the Best Years of Your Life</p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="logo2.png" alt="Greek Empire" class="footer-brand-logo">
+        <p class="footer-tagline">College Apparel for the Best Years of Your Life</p>
+        <p class="footer-address">
+          281 Benigno Blvd, Bellmawr, NJ 08031<br>
+          crystal@empirepromos.com<br>
+          +1 (877) 477 6667
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title">Program</div>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#earn">3 Ways to Earn</a></li>
+          <li><a href="#apply">Apply Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Follow Us</div>
+        <div class="footer-social">
+          <a href="https://www.tiktok.com/@_greekempire_" target="_blank">TikTok</a>
+          <a href="https://www.instagram.com/_greekempire_" target="_blank">Instagram</a>
+          <a href="https://x.com/GreekEmpire" target="_blank">X</a>
+          <a href="https://www.facebook.com/profile.php?id=61577651367741" target="_blank">Facebook</a>
+          <a href="https://snapchat.com/t/EyeRIpim" target="_blank">Snapchat</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Greek Empire · All Rights Reserved</span>
+      <span class="footer-est">Est. 334 BC</span>
+    </div>
+  </div>
 </footer>
 
 <script>
@@ -418,6 +524,12 @@ function submitForm() {
 }
 
 document.getElementById('f-date').valueAsDate = new Date();
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
