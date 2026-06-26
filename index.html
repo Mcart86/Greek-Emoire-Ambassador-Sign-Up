@@ -9,650 +9,135 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
   --black: #0e0e0c;
   --off-black: #1a1a16;
   --dark: #232320;
   --gold: #c9a84c;
   --gold-light: #e8c96a;
-  --gold-dim: rgba(201,168,76,0.15);
+  --gold-dim: rgba(201,168,76,0.12);
   --gold-border: rgba(201,168,76,0.3);
   --white: #f5f3ee;
   --gray: #8a8880;
-  --light-gray: #2e2e2a;
   --radius: 4px;
 }
-
 html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-body {
-  background: var(--black);
-  color: var(--white);
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.25rem 2.5rem;
-  background: rgba(14,14,12,0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(201,168,76,0.12);
-}
-.nav-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
-  letter-spacing: 0.12em;
-  color: var(--gold);
-  text-decoration: none;
-}
-.nav-cta {
-  background: var(--gold);
-  color: var(--black);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.55rem 1.25rem;
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: background 0.2s;
-}
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2.5rem; background: rgba(14,14,12,0.88); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.12); }
+.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.12em; color: var(--gold); text-decoration: none; }
+.nav-cta { background: var(--gold); color: var(--black); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.55rem 1.25rem; border-radius: var(--radius); text-decoration: none; transition: background 0.2s; }
 .nav-cta:hover { background: var(--gold-light); }
 
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 8rem 2rem 5rem;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero-eyebrow {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.hero-eyebrow::before, .hero-eyebrow::after {
-  content: '';
-  display: block;
-  width: 32px;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.5;
-}
-.hero h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(64px, 12vw, 130px);
-  line-height: 0.9;
-  letter-spacing: 0.04em;
-  color: var(--white);
-  margin-bottom: 0.2em;
-}
+/* HERO */
+.hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.07) 0%, transparent 70%); pointer-events: none; }
+.hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); opacity: 0.5; }
+.hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 12vw, 130px); line-height: 0.9; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.2em; }
 .hero h1 span { color: var(--gold); }
-.hero-sub {
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 2.5rem;
-}
-.hero-desc {
-  max-width: 520px;
-  font-size: 16px;
-  color: #a8a69f;
-  line-height: 1.75;
-  margin-bottom: 3rem;
-}
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.btn-primary {
-  background: var(--gold);
-  color: var(--black);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.9rem 2.2rem;
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
-  display: inline-block;
-}
+.hero-sub { font-size: 13px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); margin-bottom: 2.5rem; }
+.hero-desc { max-width: 560px; font-size: 16px; color: #a8a69f; line-height: 1.75; margin-bottom: 3rem; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.btn-primary { background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2.2rem; border-radius: var(--radius); text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
 .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-.btn-ghost {
-  border: 1px solid var(--gold-border);
-  color: var(--gold);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.9rem 2.2rem;
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: border-color 0.2s, background 0.2s;
-  display: inline-block;
-}
+.btn-ghost { border: 1px solid var(--gold-border); color: var(--gold); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.9rem 2.2rem; border-radius: var(--radius); text-decoration: none; transition: border-color 0.2s, background 0.2s; display: inline-block; }
 .btn-ghost:hover { background: var(--gold-dim); border-color: var(--gold); }
 
-/* ── STATS BAR ── */
-.stats-bar {
-  background: var(--off-black);
-  border-top: 1px solid rgba(201,168,76,0.12);
-  border-bottom: 1px solid rgba(201,168,76,0.12);
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0;
-}
-.stat-item {
-  flex: 1;
-  min-width: 180px;
-  max-width: 260px;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  border-right: 1px solid rgba(201,168,76,0.1);
-}
+/* STATS */
+.stats-bar { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.12); border-bottom: 1px solid rgba(201,168,76,0.12); display: flex; justify-content: center; flex-wrap: wrap; }
+.stat-item { flex: 1; min-width: 180px; max-width: 260px; padding: 2rem 1.5rem; text-align: center; border-right: 1px solid rgba(201,168,76,0.1); }
 .stat-item:last-child { border-right: none; }
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 42px;
-  letter-spacing: 0.05em;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 0.3rem;
-}
-.stat-label {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gray);
-}
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 42px; letter-spacing: 0.05em; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }
+.stat-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); }
 
-/* ── SECTION BASE ── */
+/* SECTIONS */
 section { padding: 6rem 2rem; }
 .container { max-width: 1100px; margin: 0 auto; }
-.section-eyebrow {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.75rem;
-}
-.section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(40px, 6vw, 64px);
-  letter-spacing: 0.05em;
-  color: var(--white);
-  line-height: 1;
-  margin-bottom: 1rem;
-}
-.section-desc {
-  font-size: 15px;
-  color: #a8a69f;
-  max-width: 560px;
-  line-height: 1.75;
-}
+.section-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 64px); letter-spacing: 0.05em; color: var(--white); line-height: 1; margin-bottom: 1.5rem; }
 
-/* ── ABOUT ── */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  margin-top: 4rem;
-}
-.about-text p {
-  font-size: 16px;
-  color: #a8a69f;
-  line-height: 1.8;
-  margin-bottom: 1.25rem;
-}
-.about-highlights {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-.highlight-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.25rem;
-  background: var(--off-black);
-  border: 1px solid rgba(201,168,76,0.1);
-  border-radius: var(--radius);
-  margin-bottom: 10px;
-  transition: border-color 0.2s;
-}
-.highlight-item:hover { border-color: var(--gold-border); }
-.highlight-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  color: var(--gold);
-  opacity: 0.5;
-  line-height: 1;
-  flex-shrink: 0;
-  width: 36px;
-}
-.highlight-content h4 {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 0.3rem;
-  letter-spacing: 0.02em;
-}
-.highlight-content p {
-  font-size: 13px;
-  color: var(--gray);
-  line-height: 1.6;
-}
+/* ABOUT */
+.about-body { max-width: 720px; font-size: 16px; color: #a8a69f; line-height: 1.8; }
 
-/* ── BENEFITS GRID ── */
+/* BENEFITS */
 .benefits-section { background: var(--off-black); }
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(201,168,76,0.1);
-  border: 1px solid rgba(201,168,76,0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-top: 3.5rem;
-}
-.benefit-card {
-  background: var(--off-black);
-  padding: 2rem 1.75rem;
-  transition: background 0.2s;
-}
+.benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.1); border-radius: 8px; overflow: hidden; margin-top: 3.5rem; }
+.benefit-card { background: var(--off-black); padding: 2rem 1.75rem; transition: background 0.2s; }
 .benefit-card:hover { background: var(--dark); }
-.benefit-icon {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
-  color: var(--gold);
-  opacity: 0.4;
-  margin-bottom: 0.75rem;
-  line-height: 1;
-}
-.benefit-card h3 {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.01em;
-}
-.benefit-card p {
-  font-size: 13px;
-  color: var(--gray);
-  line-height: 1.65;
-}
+.benefit-num { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--gold); opacity: 0.35; margin-bottom: 0.6rem; line-height: 1; }
+.benefit-card h3 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
+.benefit-card p { font-size: 13px; color: var(--gray); line-height: 1.65; }
 
-/* ── EARN ── */
-.earn-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-top: 3.5rem;
-}
-.earn-card {
-  background: var(--off-black);
-  border: 1px solid rgba(201,168,76,0.12);
-  border-radius: 8px;
-  padding: 2rem 1.75rem;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.2s, transform 0.2s;
-}
+/* EARN */
+.earn-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3.5rem; }
+.earn-card { background: var(--off-black); border: 1px solid rgba(201,168,76,0.12); border-radius: 8px; padding: 2rem 1.75rem; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
 .earn-card:hover { border-color: var(--gold-border); transform: translateY(-3px); }
-.earn-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--gold);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
+.earn-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); opacity: 0; transition: opacity 0.2s; }
 .earn-card:hover::before { opacity: 1; }
-.earn-card-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.15em;
-  color: var(--gold);
-  margin-bottom: 0.75rem;
-}
-.earn-card h3 {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 0.75rem;
-}
+.earn-card-num { font-family: 'Bebas Neue', sans-serif; font-size: 12px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 0.75rem; }
+.earn-card h3 { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 0.75rem; }
 .earn-card p { font-size: 13px; color: var(--gray); line-height: 1.65; }
+.example-earnings { margin-top: 2.5rem; background: var(--gold-dim); border: 1px solid var(--gold-border); border-radius: 8px; padding: 1.25rem 1.75rem; display: flex; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+.example-earnings .eg-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+.example-earnings .eg-items { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.example-earnings .eg { font-size: 13px; color: var(--gray); }
+.example-earnings .eg strong { color: var(--white); font-weight: 600; }
 
-.example-earnings {
-  margin-top: 2.5rem;
-  background: var(--gold-dim);
-  border: 1px solid var(--gold-border);
-  border-radius: 8px;
-  padding: 1.25rem 1.75rem;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-.example-earnings .label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-.example-earnings .items {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-}
-.example-earnings .eg {
-  font-size: 13px;
-  color: var(--gray);
-}
-.example-earnings .eg strong {
-  color: var(--white);
-  font-weight: 600;
-}
-
-/* ── EXPECTATIONS ── */
+/* EXPECT */
 .expect-section { background: var(--off-black); }
-.expect-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 3rem;
-}
-.expect-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 1rem 1.25rem;
-  background: var(--black);
-  border: 1px solid rgba(201,168,76,0.08);
-  border-radius: var(--radius);
-  font-size: 14px;
-  color: #a8a69f;
-  line-height: 1.55;
-  transition: border-color 0.2s;
-}
+.expect-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 3rem; }
+.expect-list li { display: flex; align-items: flex-start; gap: 12px; padding: 1rem 1.25rem; background: var(--black); border: 1px solid rgba(201,168,76,0.08); border-radius: var(--radius); font-size: 14px; color: #a8a69f; line-height: 1.55; transition: border-color 0.2s; }
 .expect-list li:hover { border-color: var(--gold-border); }
-.expect-list li::before {
-  content: '—';
-  color: var(--gold);
-  font-size: 12px;
-  flex-shrink: 0;
-  margin-top: 2px;
-  opacity: 0.7;
-}
+.expect-list li::before { content: '—'; color: var(--gold); font-size: 12px; flex-shrink: 0; margin-top: 2px; opacity: 0.6; }
 
-/* ── FORM SECTION ── */
+/* FORM */
 .form-section { background: var(--black); }
-.form-wrapper {
-  max-width: 760px;
-  margin: 3.5rem auto 0;
-  background: var(--off-black);
-  border: 1px solid rgba(201,168,76,0.18);
-  border-radius: 12px;
-  padding: 2.5rem;
-}
-
-.agree-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 2rem;
-}
-.agree-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0.9rem 1.1rem;
-  background: var(--black);
-  border: 1px solid rgba(201,168,76,0.1);
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-size: 14px;
-  color: #a8a69f;
-  transition: border-color 0.15s;
-}
-.agree-row:has(input:checked) {
-  border-color: var(--gold-border);
-  color: var(--white);
-}
-.agree-row input[type="checkbox"] {
-  accent-color: var(--gold);
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-
-.ack-note {
-  font-size: 13px;
-  color: var(--gray);
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  padding: 0.9rem 1.1rem;
-  border-left: 2px solid var(--gold);
-  background: var(--gold-dim);
-  border-radius: 0 var(--radius) var(--radius) 0;
-}
-
-/* Signature */
-.sig-label {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 8px;
-  display: block;
-}
-.sig-wrap {
-  position: relative;
-  border: 1px solid rgba(201,168,76,0.2);
-  border-radius: var(--radius);
-  background: var(--black);
-  overflow: hidden;
-  margin-bottom: 6px;
-}
-#sigCanvas {
-  display: block;
-  width: 100%;
-  height: 120px;
-  cursor: crosshair;
-  touch-action: none;
-}
-.sig-placeholder {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  font-size: 13px;
-  color: rgba(138,136,128,0.4);
-  pointer-events: none;
-  user-select: none;
-  transition: opacity 0.2s;
-}
-.sig-clear {
-  background: none;
-  border: none;
-  font-size: 12px;
-  color: var(--gray);
-  cursor: pointer;
-  padding: 0;
-  text-decoration: underline;
-  font-family: inherit;
-  margin-bottom: 2rem;
-  display: block;
-}
+.form-wrapper { max-width: 760px; margin: 3.5rem auto 0; background: var(--off-black); border: 1px solid rgba(201,168,76,0.18); border-radius: 12px; padding: 2.5rem; }
+.form-intro { font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 1.75rem; }
+.agree-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.75rem; }
+.agree-row { display: flex; align-items: center; gap: 12px; padding: 0.9rem 1.1rem; background: var(--black); border: 1px solid rgba(201,168,76,0.1); border-radius: var(--radius); cursor: pointer; font-size: 14px; color: #a8a69f; transition: border-color 0.15s, color 0.15s; }
+.agree-row:has(input:checked) { border-color: var(--gold-border); color: var(--white); }
+.agree-row input[type="checkbox"] { accent-color: var(--gold); width: 16px; height: 16px; flex-shrink: 0; cursor: pointer; }
+.ack-note { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 2rem; padding: 0.9rem 1.1rem; border-left: 2px solid var(--gold); background: var(--gold-dim); border-radius: 0 var(--radius) var(--radius) 0; }
+.sig-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; display: block; }
+.sig-hint-text { font-weight: 400; text-transform: none; letter-spacing: 0; color: rgba(138,136,128,0.45); font-size: 11px; }
+.sig-wrap { position: relative; border: 1px solid rgba(201,168,76,0.2); border-radius: var(--radius); background: var(--black); overflow: hidden; margin-bottom: 6px; }
+#sigCanvas { display: block; width: 100%; height: 120px; cursor: crosshair; touch-action: none; }
+.sig-placeholder { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 13px; color: rgba(138,136,128,0.35); pointer-events: none; user-select: none; transition: opacity 0.2s; }
+.sig-clear { background: none; border: none; font-size: 12px; color: var(--gray); cursor: pointer; padding: 0; text-decoration: underline; font-family: inherit; margin-bottom: 2rem; display: block; }
 .sig-clear:hover { color: var(--gold); }
-
-/* Fields */
-.form-divider {
-  height: 1px;
-  background: rgba(201,168,76,0.1);
-  margin: 2rem 0;
-}
-.field-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
+.form-divider { height: 1px; background: rgba(201,168,76,0.1); margin: 1.75rem 0; }
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .field-grid .full { grid-column: 1 / -1; }
-.field-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.field-group label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gray);
-}
-.field-group input {
-  width: 100%;
-  height: 42px;
-  padding: 0 14px;
-  background: var(--black);
-  border: 1px solid rgba(201,168,76,0.15);
-  border-radius: var(--radius);
-  font-size: 14px;
-  color: var(--white);
-  font-family: inherit;
-  outline: none;
-  transition: border-color 0.15s;
-}
-.field-group input:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(201,168,76,0.08);
-}
-.field-group input::placeholder { color: rgba(138,136,128,0.5); }
-
-.submit-btn {
-  width: 100%;
-  height: 50px;
-  margin-top: 1.75rem;
-  background: var(--gold);
-  color: var(--black);
-  border: none;
-  border-radius: var(--radius);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-family: inherit;
-  transition: background 0.2s, transform 0.1s;
-}
+.field-group { display: flex; flex-direction: column; gap: 6px; }
+.field-group label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+.field-group input { width: 100%; height: 42px; padding: 0 14px; background: var(--black); border: 1px solid rgba(201,168,76,0.15); border-radius: var(--radius); font-size: 14px; color: var(--white); font-family: inherit; outline: none; transition: border-color 0.15s; }
+.field-group input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.07); }
+.field-group input::placeholder { color: rgba(138,136,128,0.45); }
+.submit-btn { width: 100%; height: 50px; margin-top: 1.75rem; background: var(--gold); color: var(--black); border: none; border-radius: var(--radius); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; font-family: inherit; transition: background 0.2s, transform 0.1s; }
 .submit-btn:hover { background: var(--gold-light); }
 .submit-btn:active { transform: scale(0.99); }
-.submit-btn:disabled { background: #444; color: #888; cursor: not-allowed; }
+.submit-btn:disabled { background: #3a3a36; color: #666; cursor: not-allowed; }
+.form-error { font-size: 12px; color: #e07070; margin-top: 0.5rem; display: none; }
 
-.form-error {
-  font-size: 12px;
-  color: #e07070;
-  margin-top: 0.5rem;
-  display: none;
-}
-
-/* ── SUCCESS ── */
-#successMsg {
-  display: none;
-  max-width: 760px;
-  margin: 3.5rem auto 0;
-  background: var(--off-black);
-  border: 1px solid var(--gold-border);
-  border-radius: 12px;
-  padding: 4rem 2.5rem;
-  text-align: center;
-}
-#successMsg .check {
-  width: 60px; height: 60px;
-  background: var(--gold-dim);
-  border: 1px solid var(--gold-border);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 1.5rem;
-  font-size: 22px;
-  color: var(--gold);
-}
-#successMsg h3 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
-  letter-spacing: 0.08em;
-  color: var(--white);
-  margin-bottom: 0.5rem;
-}
+/* SUCCESS */
+#successMsg { display: none; max-width: 760px; margin: 3.5rem auto 0; background: var(--off-black); border: 1px solid var(--gold-border); border-radius: 12px; padding: 4rem 2.5rem; text-align: center; }
+#successMsg .check { width: 60px; height: 60px; background: var(--gold-dim); border: 1px solid var(--gold-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 22px; color: var(--gold); }
+#successMsg h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 0.08em; color: var(--white); margin-bottom: 0.5rem; }
 #successMsg p { font-size: 15px; color: var(--gray); }
-#successMsg .ref { font-size: 11px; color: rgba(138,136,128,0.5); margin-top: 1.25rem; letter-spacing: 0.1em; }
+#successMsg .ref { font-size: 11px; color: rgba(138,136,128,0.45); margin-top: 1.25rem; letter-spacing: 0.08em; }
 
-/* ── FOOTER ── */
-footer {
-  background: var(--off-black);
-  border-top: 1px solid rgba(201,168,76,0.1);
-  padding: 2.5rem 2rem;
-  text-align: center;
-}
-.footer-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px;
-  letter-spacing: 0.14em;
-  color: var(--gold);
-  margin-bottom: 0.5rem;
-}
-footer p {
-  font-size: 12px;
-  color: rgba(138,136,128,0.5);
-  letter-spacing: 0.06em;
-}
+/* FOOTER */
+footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1); padding: 2.5rem 2rem; text-align: center; }
+.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 0.5rem; }
+footer p { font-size: 12px; color: rgba(138,136,128,0.5); letter-spacing: 0.06em; }
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   nav { padding: 1rem 1.25rem; }
   section { padding: 4rem 1.25rem; }
-  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .benefits-grid { grid-template-columns: 1fr; }
   .earn-cards { grid-template-columns: 1fr; }
   .expect-list { grid-template-columns: 1fr; }
@@ -676,11 +161,9 @@ footer p {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-eyebrow">Campus Ambassador Program</div>
-  <h1>WEAR THE<br><span>EMPIRE</span></h1>
+  <h1>GREEK<br><span>EMPIRE</span></h1>
   <p class="hero-sub">College Apparel for the Best Years of Your Life</p>
-  <p class="hero-desc">
-    Represent Greek Empire at your school, connect chapters with premium custom apparel, and earn real commission — on your own schedule.
-  </p>
+  <p class="hero-desc">Greek Empire is a custom apparel company built specifically for sororities and fraternities. Connect chapters at your school with Greek Empire while gaining experience in sales, marketing, networking, and entrepreneurship.</p>
   <div class="hero-actions">
     <a href="#apply" class="btn-primary">Apply Now</a>
     <a href="#about" class="btn-ghost">Learn More</a>
@@ -710,105 +193,77 @@ footer p {
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <div class="section-eyebrow">About the program</div>
-    <h2 class="section-title">BUILT FOR<br>GREEK LIFE</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>Greek Empire is a custom apparel company built specifically for sororities and fraternities. As a Campus Ambassador, you'll help connect chapters at your school with Greek Empire while gaining experience in sales, marketing, networking, and entrepreneurship.</p>
-        <p>You'll build relationships on campus, help organizations create custom merchandise, and earn commission on every order you bring in — no cap, no schedule, no quota.</p>
-      </div>
-      <div class="about-highlights">
-        <div class="highlight-item">
-          <div class="highlight-num">01</div>
-          <div class="highlight-content">
-            <h4>Real commission, no cap</h4>
-            <p>Earn 10% on every order your chapters place. The more you grow, the more you earn.</p>
-          </div>
-        </div>
-        <div class="highlight-item">
-          <div class="highlight-num">02</div>
-          <div class="highlight-content">
-            <h4>Full team support</h4>
-            <p>Design, production, and order management are all handled — you focus on building relationships.</p>
-          </div>
-        </div>
-        <div class="highlight-item">
-          <div class="highlight-num">03</div>
-          <div class="highlight-content">
-            <h4>Your schedule</h4>
-            <p>Most ambassadors spend just 1–4 hours per week. You decide when and how much you work.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="section-eyebrow">About the Program</div>
+    <h2 class="section-title">BUILT FOR GREEK LIFE</h2>
+    <p class="about-body">Greek Empire is a custom apparel company built specifically for sororities and fraternities. As a Campus Ambassador, you'll help connect chapters at your school with Greek Empire while gaining experience in sales, marketing, networking, and entrepreneurship. You'll build relationships on campus, help organizations create custom merchandise, and earn commission on orders you bring in.</p>
   </div>
 </section>
 
-<!-- BENEFITS -->
+<!-- WHAT WE PROVIDE -->
 <section class="benefits-section">
   <div class="container">
-    <div class="section-eyebrow">What we provide</div>
-    <h2 class="section-title">EVERYTHING<br>YOU NEED</h2>
+    <div class="section-eyebrow">What We Provide</div>
+    <h2 class="section-title">EVERYTHING YOU NEED</h2>
     <div class="benefits-grid">
       <div class="benefit-card">
-        <div class="benefit-icon">01</div>
+        <div class="benefit-num">01</div>
         <h3>Triple earning potential</h3>
-        <p>Earn through chapter orders, social media content, and ambassador referrals. Every channel is an income stream.</p>
+        <p>Earn through chapter orders, social media content, and ambassador referrals. Make your own hours — most ambassadors spend 1–4 hrs/week.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">02</div>
+        <div class="benefit-num">02</div>
         <h3>Dedicated support</h3>
-        <p>Our team handles design, production, and order management so you can focus on campus relationships.</p>
+        <p>Our team handles design, production, and order management. You focus on building relationships and growing Greek Empire on campus.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">03</div>
-        <h3>Marketing plan</h3>
-        <p>Access materials, content ideas, and promotional support tailored to help you reach more students and orgs.</p>
+        <div class="benefit-num">03</div>
+        <h3>Personalized marketing plan</h3>
+        <p>Access marketing materials, content ideas, and promotional support to reach more students and organizations.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">04</div>
+        <div class="benefit-num">04</div>
         <h3>Free gear</h3>
         <p>Receive exclusive Greek Empire apparel and product samples to wear and promote on campus.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">05</div>
+        <div class="benefit-num">05</div>
         <h3>Early access</h3>
-        <p>Be first to see and promote new products, collections, and limited releases before anyone else.</p>
+        <p>Be the first to see and promote new products, collections, and limited releases.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">06</div>
+        <div class="benefit-num">06</div>
         <h3>Real experience</h3>
-        <p>Build skills in sales, marketing, communication, and brand development while growing a real business.</p>
+        <p>Develop skills in sales, marketing, communication, networking, and brand building while helping grow a startup.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EARN -->
+<!-- 3 WAYS TO EARN -->
 <section id="earn">
   <div class="container">
-    <div class="section-eyebrow">3 ways to earn</div>
-    <h2 class="section-title">YOUR MONEY,<br>YOUR RULES</h2>
+    <div class="section-eyebrow">3 Ways to Earn</div>
+    <h2 class="section-title">YOUR MONEY, YOUR RULES</h2>
     <div class="earn-cards">
       <div class="earn-card">
-        <div class="earn-card-num">01 — Commission</div>
-        <h3>Orders</h3>
-        <p>Earn 10% commission on every order placed using your referral code. No cap. Every chapter you refer also earns 2.5%–5% back on qualifying orders.</p>
+        <div class="earn-card-num">01</div>
+        <h3>Commission on orders</h3>
+        <p>Earn 10% on every order placed using your referral code. No cap. Every chapter you refer also earns 2.5%–5% back on qualifying orders.</p>
       </div>
       <div class="earn-card">
-        <div class="earn-card-num">02 — SIP</div>
-        <h3>Social Media</h3>
+        <div class="earn-card-num">02</div>
+        <h3>Social Media Incentive (SIP)</h3>
         <p>Earn bonuses by creating approved content on TikTok and Instagram. Submit through the Greek Empire content portal before posting.</p>
       </div>
       <div class="earn-card">
-        <div class="earn-card-num">03 — Referrals</div>
-        <h3>Ambassador Network</h3>
-        <p>Earn a 2.5% commission when qualified students you refer join the Campus Ambassador Program.</p>
+        <div class="earn-card-num">03</div>
+        <h3>Ambassador referrals</h3>
+        <p>Earn 2.5% commission when qualified students you refer join the Campus Ambassador Program.</p>
       </div>
     </div>
     <div class="example-earnings">
-      <span class="label">Example earnings</span>
-      <div class="items">
+      <span class="eg-label">Example earnings</span>
+      <div class="eg-items">
         <span class="eg">$1,000 order = <strong>$100</strong></span>
         <span class="eg">$3,000 order = <strong>$300</strong></span>
         <span class="eg">(5) $3,000 orders/semester = <strong>$1,500</strong></span>
@@ -817,36 +272,36 @@ footer p {
   </div>
 </section>
 
-<!-- EXPECTATIONS -->
+<!-- WHAT WE EXPECT -->
 <section class="expect-section">
   <div class="container">
-    <div class="section-eyebrow">What we expect</div>
-    <h2 class="section-title">YOUR ROLE<br>ON CAMPUS</h2>
+    <div class="section-eyebrow">What We Expect</div>
+    <h2 class="section-title">YOUR ROLE ON CAMPUS</h2>
     <ul class="expect-list">
       <li>Build relationships with sororities and fraternities on your campus.</li>
       <li>Connect chapter leaders with Greek Empire for custom apparel and merchandise.</li>
       <li>Stay responsive and communicate regularly with the Greek Empire team.</li>
       <li>Help organize and manage chapter orders with support from our team.</li>
-      <li>Actively promote to Merch Chairs, Rush Chairs, and Social Chairs.</li>
-      <li>Generate social content for our Social Media Incentive Program.</li>
+      <li>Actively promote Greek Empire merch to chapter leadership — Merch Chairs, Rush Chairs, and Social Chairs.</li>
+      <li>Generate social content to earn more from our Social Media Incentive Program (Instagram and/or TikTok).</li>
       <li>Represent Greek Empire authentically within your chapter and campus community.</li>
+      <li>Greek Empire limits ambassadors per school — work hard to keep your spot.</li>
       <li>Log all chapter contacts and orders in the Greek Empire CRM.</li>
-      <li>Work hard to keep your spot — Greek Empire limits ambassadors per school.</li>
-      <li>Conduct yourself consistent with the Greek Empire brand — elevated and credible.</li>
+      <li>Conduct yourself in a way consistent with the Greek Empire brand — elevated, credible, and culturally embedded.</li>
     </ul>
   </div>
 </section>
 
-<!-- APPLY FORM -->
+<!-- APPLY / SIGN -->
 <section class="form-section" id="apply">
   <div class="container">
-    <div style="text-align:center; margin-bottom: 0;">
-      <div class="section-eyebrow" style="justify-content:center; display:flex;">Program acknowledgement &amp; signature</div>
+    <div style="text-align:center;">
+      <div class="section-eyebrow" style="display:flex;justify-content:center;">Program Acknowledgement &amp; Signature</div>
       <h2 class="section-title">APPLY NOW</h2>
-      <p class="section-desc" style="margin: 0 auto;">By submitting, you confirm you've read and agree to all program terms below.</p>
     </div>
 
     <div class="form-wrapper" id="formCard">
+      <p class="form-intro">By signing below, you confirm that you have read, understood, and agree to the following:</p>
 
       <div class="agree-list">
         <label class="agree-row"><input type="checkbox" id="chk1"> Greek Empire Campus Ambassador Program — Details and Responsibilities</label>
@@ -855,24 +310,20 @@ footer p {
         <label class="agree-row"><input type="checkbox" id="chk4"> Greek Empire Brand Standards</label>
       </div>
 
-      <div class="ack-note">
-        You acknowledge that Greek Empire limits ambassador representation at each school and that your position is contingent upon continued compliance with all program requirements.
-      </div>
+      <div class="ack-note">You acknowledge that Greek Empire limits ambassador representation at each school and that your position is contingent upon continued compliance with all program requirements.</div>
 
-      <!-- Signature -->
-      <span class="sig-label">Signature <span style="font-weight:400; text-transform:none; letter-spacing:0; color:rgba(138,136,128,0.5); font-size:11px;">(draw with mouse or finger)</span></span>
+      <span class="sig-label">Signature <span class="sig-hint-text">(draw with mouse or finger)</span></span>
       <div class="sig-wrap">
         <canvas id="sigCanvas"></canvas>
         <div class="sig-placeholder" id="sigHint">Sign here</div>
       </div>
-      <button class="sig-clear" onclick="clearSig()">Clear signature</button>
+      <button class="sig-clear" type="button" onclick="clearSig()">Clear signature</button>
 
       <div class="form-divider"></div>
 
-      <!-- Fields -->
       <div class="field-grid">
         <div class="field-group full">
-          <label for="f-name">Full name (print)</label>
+          <label for="f-name">Ambassador Name (Print)</label>
           <input type="text" id="f-name" placeholder="Jane Smith" autocomplete="name">
         </div>
         <div class="field-group">
@@ -888,7 +339,7 @@ footer p {
           <input type="email" id="f-email" placeholder="jane@university.edu">
         </div>
         <div class="field-group">
-          <label for="f-college">College / University</label>
+          <label for="f-college">College</label>
           <input type="text" id="f-college" placeholder="State University">
         </div>
         <div class="field-group">
@@ -896,12 +347,12 @@ footer p {
           <input type="text" id="f-chapter" placeholder="Alpha Beta Gamma">
         </div>
         <div class="field-group">
-          <label for="f-ig">Instagram handle</label>
+          <label for="f-ig">Instagram Handle</label>
           <input type="text" id="f-ig" placeholder="@username">
         </div>
       </div>
 
-      <button class="submit-btn" id="submitBtn" onclick="submitForm()">Submit Application</button>
+      <button class="submit-btn" id="submitBtn" type="button" onclick="submitForm()">Submit Application</button>
       <div class="form-error" id="formError">Please complete all fields, check all boxes, and add your signature.</div>
     </div>
 
@@ -921,7 +372,6 @@ footer p {
 </footer>
 
 <script>
-// ── Signature pad ──
 const canvas = document.getElementById('sigCanvas');
 const ctx = canvas.getContext('2d');
 let drawing = false, hasSig = false;
@@ -940,17 +390,17 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
-function pos(e) {
+function getPos(e) {
   const r = canvas.getBoundingClientRect();
   const src = e.touches ? e.touches[0] : e;
   return { x: src.clientX - r.left, y: src.clientY - r.top };
 }
-canvas.addEventListener('mousedown', e => { drawing = true; const p = pos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); });
-canvas.addEventListener('mousemove', e => { if (!drawing) return; const p = pos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSig = true; document.getElementById('sigHint').style.opacity = '0'; });
+canvas.addEventListener('mousedown', e => { drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); });
+canvas.addEventListener('mousemove', e => { if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSig = true; document.getElementById('sigHint').style.opacity = '0'; });
 canvas.addEventListener('mouseup', () => drawing = false);
 canvas.addEventListener('mouseleave', () => drawing = false);
-canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing = true; const p = pos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); }, {passive:false});
-canvas.addEventListener('touchmove', e => { e.preventDefault(); if (!drawing) return; const p = pos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSig = true; document.getElementById('sigHint').style.opacity = '0'; }, {passive:false});
+canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); }, {passive:false});
+canvas.addEventListener('touchmove', e => { e.preventDefault(); if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSig = true; document.getElementById('sigHint').style.opacity = '0'; }, {passive:false});
 canvas.addEventListener('touchend', () => drawing = false);
 
 function clearSig() {
@@ -959,29 +409,26 @@ function clearSig() {
   document.getElementById('sigHint').style.opacity = '1';
 }
 
-// ── Submit ──
 function submitForm() {
   const allChecked = ['chk1','chk2','chk3','chk4'].every(id => document.getElementById(id).checked);
-  const name = document.getElementById('f-name').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-  const phone = document.getElementById('f-phone').value.trim();
-  const date = document.getElementById('f-date').value;
+  const name    = document.getElementById('f-name').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const phone   = document.getElementById('f-phone').value.trim();
+  const date    = document.getElementById('f-date').value;
   const college = document.getElementById('f-college').value.trim();
   const chapter = document.getElementById('f-chapter').value.trim();
   const err = document.getElementById('formError');
   if (!allChecked || !hasSig || !name || !email || !phone || !date || !college || !chapter) {
-    err.style.display = 'block';
-    return;
+    err.style.display = 'block'; return;
   }
   err.style.display = 'none';
   const btn = document.getElementById('submitBtn');
-  btn.disabled = true;
-  btn.textContent = 'Submitting…';
+  btn.disabled = true; btn.textContent = 'Submitting…';
   setTimeout(() => {
     document.getElementById('formCard').style.display = 'none';
     const s = document.getElementById('successMsg');
     s.style.display = 'block';
-    document.getElementById('refNum').textContent = 'Reference: GE-' + Date.now().toString(36).toUpperCase() + ' · ' + new Date().toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
+    document.getElementById('refNum').textContent = 'Reference: GE-' + Date.now().toString(36).toUpperCase() + ' · ' + new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
   }, 900);
 }
 
