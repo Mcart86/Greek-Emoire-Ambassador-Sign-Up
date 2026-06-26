@@ -96,9 +96,13 @@ section { padding: 6rem 2rem; }
 /* EXPECT */
 .expect-section { background: #0e0e0c; }
 .expect-list { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 3rem; }
-.expect-list li { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 1.25rem; background: #1a1a16; border: 1px solid rgba(201,168,76,0.12); border-radius: 8px; font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: #ffffff; line-height: 1.7; transition: border-color 0.2s; }
-.expect-list li:hover { border-color: rgba(201,168,76,0.4); }
-.expect-list li::before { content: '—'; background: linear-gradient(90deg, #8B6914 0%, #D4A43A 25%, #F0C040 50%, #D4A43A 75%, #8B6914 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 14px; flex-shrink: 0; }
+.expect-list li { display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 1.5rem 1.25rem; background: #1a1a16; border: 1px solid rgba(201,168,76,0.12); border-radius: 10px; font-family: var(--font-display); font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase; color: #ffffff; line-height: 1.7; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s, background 0.25s; cursor: default; position: relative; overflow: hidden; }
+.expect-list li::before { display: none; }
+.expect-list li:hover { border-color: rgba(201,168,76,0.6); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(201,168,76,0.1); background: #222218; }
+.expect-list li:hover .expect-icon { transform: scale(1.15); }
+.expect-icon { font-size: 1.6rem; margin-bottom: 0.75rem; transition: transform 0.25s; line-height: 1; }
+.expect-title { font-family: var(--font-display); font-size: 0.82rem; letter-spacing: 0.15em; background: linear-gradient(90deg, #8B6914 0%, #D4A43A 25%, #F0C040 50%, #D4A43A 75%, #8B6914 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; line-height: 1.2; }
+.expect-body { font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.65; letter-spacing: 0.05em; }
 
 /* FORM */
 .form-section { background: #ffffff; }
@@ -213,7 +217,10 @@ footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1
 
   /* EXPECT */
   .expect-list { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .expect-list li { font-size: 0.8rem; padding: 0.9rem; }
+  .expect-list li { padding: 1.1rem; }
+  .expect-icon { font-size: 1.3rem; }
+  .expect-title { font-size: 0.75rem; }
+  .expect-body { font-size: 0.75rem; }
 
   /* FORM */
   .form-wrapper { padding: 1.25rem; margin: 1.5rem auto 0; }
@@ -388,16 +395,56 @@ footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1
     <div class="section-eyebrow">What We Expect</div>
 
     <ul class="expect-list">
-      <li>Build relationships with sororities and fraternities on your campus.</li>
-      <li>Connect chapter leaders with Greek Empire for custom apparel and merchandise.</li>
-      <li>Stay responsive and communicate regularly with the Greek Empire team.</li>
-      <li>Help organize and manage chapter orders with support from our team.</li>
-      <li>Actively promote Greek Empire merch to chapter leadership — Merch Chairs, Rush Chairs, and Social Chairs.</li>
-      <li>Generate social content to earn more from our Social Media Incentive Program (Instagram and/or TikTok).</li>
-      <li>Represent Greek Empire authentically within your chapter and campus community.</li>
-      <li>Greek Empire limits ambassadors per school — work hard to keep your spot.</li>
-      <li>Log all chapter contacts and orders in the Greek Empire CRM.</li>
-      <li>Conduct yourself in a way consistent with the Greek Empire brand — elevated, credible, and culturally embedded.</li>
+      <li>
+        <div class="expect-icon">🤝</div>
+        <div class="expect-title">Build Relationships</div>
+        <div class="expect-body">Build relationships with sororities and fraternities on your campus.</div>
+      </li>
+      <li>
+        <div class="expect-icon">👕</div>
+        <div class="expect-title">Connect Chapters</div>
+        <div class="expect-body">Connect chapter leaders with Greek Empire for custom apparel and merchandise.</div>
+      </li>
+      <li>
+        <div class="expect-icon">📲</div>
+        <div class="expect-title">Stay Responsive</div>
+        <div class="expect-body">Stay responsive and communicate regularly with the Greek Empire team.</div>
+      </li>
+      <li>
+        <div class="expect-icon">📦</div>
+        <div class="expect-title">Manage Orders</div>
+        <div class="expect-body">Help organize and manage chapter orders with support from our team.</div>
+      </li>
+      <li>
+        <div class="expect-icon">📣</div>
+        <div class="expect-title">Promote Actively</div>
+        <div class="expect-body">Actively promote Greek Empire merch to Merch Chairs, Rush Chairs, and Social Chairs.</div>
+      </li>
+      <li>
+        <div class="expect-icon">🎬</div>
+        <div class="expect-title">Create Content</div>
+        <div class="expect-body">Generate social content to earn more from our Social Media Incentive Program (Instagram and/or TikTok).</div>
+      </li>
+      <li>
+        <div class="expect-icon">⚡</div>
+        <div class="expect-title">Represent the Brand</div>
+        <div class="expect-body">Represent Greek Empire authentically within your chapter and campus community.</div>
+      </li>
+      <li>
+        <div class="expect-icon">🏆</div>
+        <div class="expect-title">Earn Your Spot</div>
+        <div class="expect-body">Greek Empire limits ambassadors per school — work hard to keep your spot.</div>
+      </li>
+      <li>
+        <div class="expect-icon">📊</div>
+        <div class="expect-title">Log in CRM</div>
+        <div class="expect-body">Log all chapter contacts and orders in the Greek Empire CRM.</div>
+      </li>
+      <li>
+        <div class="expect-icon">✨</div>
+        <div class="expect-title">Elevate the Culture</div>
+        <div class="expect-body">Conduct yourself in a way consistent with the Greek Empire brand — elevated, credible, and culturally embedded.</div>
+      </li>
     </ul>
   </div>
 </section>
