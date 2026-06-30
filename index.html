@@ -583,27 +583,62 @@ function clearSig() {
   document.getElementById('sigHint').style.opacity = '1';
 }
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/maqgdlkj';
+
 function submitForm() {
   const allChecked = ['chk1','chk2','chk3','chk4'].every(id => document.getElementById(id).checked);
-  const name    = document.getElementById('f-name').value.trim();
-  const email   = document.getElementById('f-email').value.trim();
-  const phone   = document.getElementById('f-phone').value.trim();
-  const date    = document.getElementById('f-date').value;
-  const college = document.getElementById('f-college').value.trim();
-  const chapter = document.getElementById('f-chapter').value.trim();
+  const name     = document.getElementById('f-name').value.trim();
+  const email    = document.getElementById('f-email').value.trim();
+  const phone    = document.getElementById('f-phone').value.trim();
+  const date     = document.getElementById('f-date').value;
+  const college  = document.getElementById('f-college').value.trim();
+  const chapter  = document.getElementById('f-chapter').value.trim();
+  const ig       = document.getElementById('f-ig').value.trim();
+  const referred = document.getElementById('f-referred').value;
   const err = document.getElementById('formError');
   if (!allChecked || !hasSig || !name || !email || !phone || !date || !college || !chapter) {
+    err.textContent = 'Please complete all fields, check all boxes, and add your signature.';
     err.style.display = 'block'; return;
   }
   err.style.display = 'none';
   const btn = document.getElementById('submitBtn');
   btn.disabled = true; btn.textContent = 'Submitting…';
-  setTimeout(() => {
-    document.getElementById('formCard').style.display = 'none';
-    const s = document.getElementById('successMsg');
-    s.style.display = 'block';
-    document.getElementById('refNum').textContent = 'Reference: GE-' + Date.now().toString(36).toUpperCase() + ' · ' + new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
-  }, 900);
+
+  const refNum = 'GE-' + Date.now().toString(36).toUpperCase();
+
+  canvas.toBlob(function (blob) {
+    const formData = new FormData();
+    formData.append('Reference', refNum);
+    formData.append('Ambassador Name', name);
+    formData.append('Email', email);
+    formData.append('Phone', phone);
+    formData.append('Date', date);
+    formData.append('College', college);
+    formData.append('Chapter', chapter);
+    formData.append('Instagram', ig);
+    formData.append('Referred By', referred);
+    formData.append('Agreements Accepted', 'Sign Up Form & Responsibilities, SIP Terms, CRM Reporting Requirements, Brand Standards');
+    formData.append('signature', blob, 'signature.png');
+    formData.append('_subject', 'New Greek Empire Ambassador Application — ' + name);
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    })
+    .then(res => {
+      if (!res.ok) throw new Error('Submission failed');
+      document.getElementById('formCard').style.display = 'none';
+      const s = document.getElementById('successMsg');
+      s.style.display = 'block';
+      document.getElementById('refNum').textContent = 'Reference: ' + refNum + ' · ' + new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
+    })
+    .catch(() => {
+      err.textContent = 'Something went wrong submitting your application. Please try again, or contact us directly.';
+      err.style.display = 'block';
+      btn.disabled = false; btn.textContent = 'Submit Application';
+    });
+  }, 'image/png');
 }
 
 document.getElementById('f-date').valueAsDate = new Date();
