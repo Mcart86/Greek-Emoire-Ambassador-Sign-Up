@@ -606,39 +606,37 @@ function submitForm() {
 
   const refNum = 'GE-' + Date.now().toString(36).toUpperCase();
 
-  canvas.toBlob(function (blob) {
-    const formData = new FormData();
-    formData.append('Reference', refNum);
-    formData.append('Ambassador Name', name);
-    formData.append('Email', email);
-    formData.append('Phone', phone);
-    formData.append('Date', date);
-    formData.append('College', college);
-    formData.append('Chapter', chapter);
-    formData.append('Instagram', ig);
-    formData.append('Referred By', referred);
-    formData.append('Agreements Accepted', 'Sign Up Form & Responsibilities, SIP Terms, CRM Reporting Requirements, Brand Standards');
-    formData.append('signature', blob, 'signature.png');
-    formData.append('_subject', 'New Greek Empire Ambassador Application — ' + name);
+  const formData = new FormData();
+  formData.append('Reference', refNum);
+  formData.append('Ambassador Name', name);
+  formData.append('Email', email);
+  formData.append('Phone', phone);
+  formData.append('Date', date);
+  formData.append('College', college);
+  formData.append('Chapter', chapter);
+  formData.append('Instagram', ig);
+  formData.append('Referred By', referred);
+  formData.append('Agreements Accepted', 'Sign Up Form & Responsibilities, SIP Terms, CRM Reporting Requirements, Brand Standards');
+  formData.append('Signature', 'Signed electronically on ' + date);
+  formData.append('_subject', 'New Greek Empire Ambassador Application — ' + name);
 
-    fetch(FORMSPREE_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: formData
-    })
-    .then(res => {
-      if (!res.ok) throw new Error('Submission failed');
-      document.getElementById('formCard').style.display = 'none';
-      const s = document.getElementById('successMsg');
-      s.style.display = 'block';
-      document.getElementById('refNum').textContent = 'Reference: ' + refNum + ' · ' + new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
-    })
-    .catch(() => {
-      err.textContent = 'Something went wrong submitting your application. Please try again, or contact us directly.';
-      err.style.display = 'block';
-      btn.disabled = false; btn.textContent = 'Submit Application';
-    });
-  }, 'image/png');
+  fetch(FORMSPREE_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: formData
+  })
+  .then(res => {
+    if (!res.ok) throw new Error('Submission failed');
+    document.getElementById('formCard').style.display = 'none';
+    const s = document.getElementById('successMsg');
+    s.style.display = 'block';
+    document.getElementById('refNum').textContent = 'Reference: ' + refNum + ' · ' + new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
+  })
+  .catch(() => {
+    err.textContent = 'Something went wrong submitting your application. Please try again, or contact us directly.';
+    err.style.display = 'block';
+    btn.disabled = false; btn.textContent = 'Submit Application';
+  });
 }
 
 document.getElementById('f-date').valueAsDate = new Date();
