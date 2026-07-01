@@ -72,9 +72,10 @@ section { padding: 6rem 2rem; }
 /* BENEFITS */
 .benefits-section { background: #0e0e0c; }
 .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.1); border-radius: 8px; overflow: hidden; margin-top: 3.5rem; }
-.benefit-card { background: #0e0e0c; padding: 2rem 1.75rem; transition: background 0.2s; }
+.benefit-card { background: #0e0e0c; padding: 2rem 1.75rem; transition: background 0.2s; position: relative; overflow: hidden; }
 .benefit-card:hover { background: #1a1a16; }
-.benefit-num { font-family: var(--font-display); font-size: 32px; background: linear-gradient(90deg, #C9A84C 0%, #E8C95A 25%, #FFE078 50%, #E8C95A 75%, #C9A84C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.6rem; line-height: 1; }
+.benefit-num { font-family: var(--font-display); font-size: 7rem; position: absolute; top: -0.5rem; right: 1rem; opacity: 0.07; background: linear-gradient(90deg, #C9A84C 0%, #FFE078 50%, #C9A84C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; pointer-events: none; user-select: none; }
+.benefit-icon { font-size: 1.6rem; margin-bottom: 0.75rem; display: block; }
 .benefit-card h3 { font-family: var(--font-display); font-size: 1.25rem; letter-spacing: 0.12em; text-transform: uppercase; background: linear-gradient(90deg, #C9A84C 0%, #E8C95A 25%, #FFE078 50%, #E8C95A 75%, #C9A84C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; }
 .benefit-card p { font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: #ffffff; line-height: 1.7; }
 
@@ -84,7 +85,8 @@ section { padding: 6rem 2rem; }
 .earn-card:hover { border-color: var(--gold-border); transform: translateY(-3px); }
 .earn-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); opacity: 0; transition: opacity 0.2s; }
 .earn-card:hover::before { opacity: 1; }
-.earn-card-num { font-family: var(--font-display); font-size: 32px; letter-spacing: 0.05em; background: linear-gradient(90deg, #C9A84C 0%, #E8C95A 25%, #FFE078 50%, #E8C95A 75%, #C9A84C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.75rem; line-height: 1; }
+.earn-card-num { font-family: var(--font-display); font-size: 7rem; position: absolute; top: -0.5rem; right: 1rem; opacity: 0.07; background: linear-gradient(90deg, #C9A84C 0%, #FFE078 50%, #C9A84C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; pointer-events: none; user-select: none; }
+.earn-icon { font-size: 1.6rem; margin-bottom: 0.75rem; display: block; }
 .earn-card h3 { font-family: var(--font-display); font-size: 1.25rem; letter-spacing: 0.12em; text-transform: uppercase; background: linear-gradient(90deg, #C9A84C 0%, #E8C95A 25%, #FFE078 50%, #E8C95A 75%, #C9A84C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.75rem; }
 .earn-card p { font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: #ffffff; line-height: 1.7; }
 .example-earnings { margin-top: 2.5rem; background: linear-gradient(90deg, #C9A84C 0%, #E8C95A 25%, #FFE078 50%, #E8C95A 75%, #C9A84C 100%); border: none; border-radius: 8px; padding: 1.25rem 1.75rem; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.5rem; text-align: center; }
@@ -320,31 +322,37 @@ footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1
 
     <div class="benefits-grid">
       <div class="benefit-card">
+        <span class="benefit-icon">💰</span>
         <div class="benefit-num">01</div>
         <h3>Triple earning potential</h3>
         
       </div>
       <div class="benefit-card">
+        <span class="benefit-icon">🤝</span>
         <div class="benefit-num">02</div>
         <h3>Dedicated support</h3>
         
       </div>
       <div class="benefit-card">
+        <span class="benefit-icon">📣</span>
         <div class="benefit-num">03</div>
         <h3>Personalized marketing plan</h3>
         
       </div>
       <div class="benefit-card">
+        <span class="benefit-icon">👕</span>
         <div class="benefit-num">04</div>
         <h3>Marketing Merchandise to Promote</h3>
         
       </div>
       <div class="benefit-card">
+        <span class="benefit-icon">⚡</span>
         <div class="benefit-num">05</div>
         <h3>Exclusive Drops</h3>
         
       </div>
       <div class="benefit-card">
+        <span class="benefit-icon">🚀</span>
         <div class="benefit-num">06</div>
         <h3>Real experience</h3>
         
@@ -363,16 +371,19 @@ footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1
     <div class="earn-cards">
       <div class="earn-card">
         <div class="earn-card-num">01</div>
+        <span class="earn-icon">💵</span>
         <h3>Commission on orders</h3>
         
       </div>
       <div class="earn-card">
         <div class="earn-card-num">02</div>
+        <span class="earn-icon">📱</span>
         <h3>Social Media Incentives</h3>
         
       </div>
       <div class="earn-card">
         <div class="earn-card-num">03</div>
+        <span class="earn-icon">🔗</span>
         <h3>Ambassador referrals</h3>
         
       </div>
