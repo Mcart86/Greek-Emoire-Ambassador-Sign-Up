@@ -480,6 +480,10 @@ footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1
           <input type="tel" id="f-phone" placeholder="Phone Number">
         </div>
         <div class="field-group full">
+          <label for="f-date">Date</label>
+          <input type="date" id="f-date">
+        </div>
+        <div class="field-group full">
           <label for="f-college">University / College</label>
           <input type="text" id="f-college" placeholder="University / College">
         </div>
@@ -587,12 +591,13 @@ function submitForm() {
   const lastName = document.getElementById('f-last') ? document.getElementById('f-last').value.trim() : '';
   const email    = document.getElementById('f-email').value.trim();
   const phone    = document.getElementById('f-phone').value.trim();
+  const date     = document.getElementById('f-date').value;
   const college  = document.getElementById('f-college').value.trim();
   const ig       = document.getElementById('f-ig').value.trim();
   const referred = document.getElementById('f-referred').value;
   const message  = document.getElementById('f-message') ? document.getElementById('f-message').value.trim() : '';
   const err = document.getElementById('formError');
-  if (!allChecked || !hasSig || !name || !email || !phone || !college) {
+  if (!allChecked || !hasSig || !name || !email || !phone || !date || !college) {
     err.textContent = 'Please complete all fields, check all boxes, and add your signature.';
     err.style.display = 'block'; return;
   }
@@ -641,6 +646,7 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.getElementById('f-date').valueAsDate = new Date();
 </script>
 </body>
 </html>
