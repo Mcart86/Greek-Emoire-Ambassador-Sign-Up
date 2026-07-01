@@ -464,8 +464,12 @@ footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1
 
       <div class="field-grid">
         <div class="field-group full">
-          <label for="f-name">Ambassador Name (Print)</label>
-          <input type="text" id="f-name" placeholder="Jane Smith" autocomplete="name">
+          <label for="f-name">First Name</label>
+          <input type="text" id="f-name" placeholder="First Name" autocomplete="given-name">
+        </div>
+        <div class="field-group">
+          <label for="f-last">Last Name</label>
+          <input type="text" id="f-last" placeholder="Last Name" autocomplete="family-name">
         </div>
         <div class="field-group">
           <label for="f-date">Date</label>
@@ -480,15 +484,15 @@ footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1
           <input type="email" id="f-email" placeholder="jane@university.edu">
         </div>
         <div class="field-group">
-          <label for="f-college">College</label>
-          <input type="text" id="f-college" placeholder="State University">
+          <label for="f-college">University / College</label>
+          <input type="text" id="f-college" placeholder="University / College">
         </div>
         <div class="field-group">
           <label for="f-chapter">Chapter</label>
           <input type="text" id="f-chapter" placeholder="Alpha Beta Gamma">
         </div>
         <div class="field-group">
-          <label for="f-ig">Instagram Handle</label>
+          <label for="f-ig">Instagram Handle (optional)</label>
           <input type="text" id="f-ig" placeholder="@username">
         </div>
         <div class="field-group full">
@@ -581,6 +585,7 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/maqgdlkj';
 function submitForm() {
   const allChecked = ['chk1','chk2','chk3','chk4'].every(id => document.getElementById(id).checked);
   const name     = document.getElementById('f-name').value.trim();
+  const lastName = document.getElementById('f-last') ? document.getElementById('f-last').value.trim() : '';
   const email    = document.getElementById('f-email').value.trim();
   const phone    = document.getElementById('f-phone').value.trim();
   const date     = document.getElementById('f-date').value;
@@ -588,6 +593,7 @@ function submitForm() {
   const chapter  = document.getElementById('f-chapter').value.trim();
   const ig       = document.getElementById('f-ig').value.trim();
   const referred = document.getElementById('f-referred').value;
+  const message  = document.getElementById('f-message') ? document.getElementById('f-message').value.trim() : '';
   const err = document.getElementById('formError');
   if (!allChecked || !hasSig || !name || !email || !phone || !date || !college || !chapter) {
     err.textContent = 'Please complete all fields, check all boxes, and add your signature.';
