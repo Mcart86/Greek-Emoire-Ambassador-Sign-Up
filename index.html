@@ -598,7 +598,7 @@ function submitForm() {
   const referred = document.getElementById('f-referred').value;
   const message  = document.getElementById('f-message') ? document.getElementById('f-message').value.trim() : '';
   const err = document.getElementById('formError');
-  if (!allChecked || !hasSig || !name || !email || !phone || !date || !college) {
+  if (!allChecked || !hasSig || !name || !lastName || !email || !phone || !date || !college || !referred || !message) {
     err.textContent = 'Please complete all fields, check all boxes, and add your signature.';
     err.style.display = 'block'; return;
   }
