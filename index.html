@@ -471,35 +471,38 @@ footer { background: var(--off-black); border-top: 1px solid rgba(201,168,76,0.1
           <label for="f-last">Last Name</label>
           <input type="text" id="f-last" placeholder="Last Name" autocomplete="family-name">
         </div>
-        <div class="field-group">
-          <label for="f-date">Date</label>
-          <input type="date" id="f-date">
-        </div>
-        <div class="field-group">
-          <label for="f-phone">Phone</label>
-          <input type="tel" id="f-phone" placeholder="(555) 000-0000">
+        <div class="field-group full">
+          <label for="f-email">Email Address</label>
+          <input type="email" id="f-email" placeholder="Email Address">
         </div>
         <div class="field-group full">
-          <label for="f-email">Email</label>
-          <input type="email" id="f-email" placeholder="jane@university.edu">
+          <label for="f-phone">Phone Number</label>
+          <input type="tel" id="f-phone" placeholder="Phone Number">
         </div>
-        <div class="field-group">
+        <div class="field-group full">
           <label for="f-college">University / College</label>
           <input type="text" id="f-college" placeholder="University / College">
         </div>
-        <div class="field-group">
+        <div class="field-group full">
           <label for="f-ig">Instagram Handle (optional)</label>
-          <input type="text" id="f-ig" placeholder="@username">
+          <input type="text" id="f-ig" placeholder="Instagram Handle (optional)">
         </div>
         <div class="field-group full">
           <label for="f-referred">Referred By</label>
           <select id="f-referred">
-            <option value="" disabled selected>Select one...</option>
+            <option value="" disabled selected>Referred by</option>
             <option value="Alexa">Alexa</option>
             <option value="Avry">Avry</option>
             <option value="Elijah">Elijah</option>
             <option value="Jackson">Jackson</option>
+            <option value="Advertisement — Instagram">Advertisement — Instagram</option>
+            <option value="Advertisement — TikTok">Advertisement — TikTok</option>
+            <option value="Advertisement — Facebook">Advertisement — Facebook</option>
           </select>
+        </div>
+        <div class="field-group full">
+          <label for="f-message">Tell Us About Yourself</label>
+          <textarea id="f-message" placeholder="Tell us about yourself and your campus life. Are you a member of any Greek organizations, clubs or sports? Why do you want to be a college ambassador?" rows="4" style="width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,168,76,0.3);outline:none;padding:0.95rem 0.25rem;font-family:var(--font-sans);font-size:0.875rem;color:#f5f0e8;resize:vertical;"></textarea>
         </div>
       </div>
 
@@ -584,13 +587,12 @@ function submitForm() {
   const lastName = document.getElementById('f-last') ? document.getElementById('f-last').value.trim() : '';
   const email    = document.getElementById('f-email').value.trim();
   const phone    = document.getElementById('f-phone').value.trim();
-  const date     = document.getElementById('f-date').value;
   const college  = document.getElementById('f-college').value.trim();
   const ig       = document.getElementById('f-ig').value.trim();
   const referred = document.getElementById('f-referred').value;
   const message  = document.getElementById('f-message') ? document.getElementById('f-message').value.trim() : '';
   const err = document.getElementById('formError');
-  if (!allChecked || !hasSig || !name || !email || !phone || !date || !college) {
+  if (!allChecked || !hasSig || !name || !email || !phone || !college) {
     err.textContent = 'Please complete all fields, check all boxes, and add your signature.';
     err.style.display = 'block'; return;
   }
@@ -633,7 +635,6 @@ function submitForm() {
   });
 }
 
-document.getElementById('f-date').valueAsDate = new Date();
 
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
