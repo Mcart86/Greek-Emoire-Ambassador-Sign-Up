@@ -80,7 +80,7 @@ section { padding: 6rem 2rem; }
 
 /* EARN */
 .earn-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3.5rem; }
-.earn-card { background: #0e0e0c; border: 1px solid rgba(201,168,76,0.2); border-radius: 8px; padding: 2rem 1.75rem; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
+.earn-card { background: #0e0e0c; border: 1px solid rgba(201,168,76,0.2); border-radius: 8px; padding: 2rem 1.75rem; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; min-height: 160px; display: flex; flex-direction: column; justify-content: center; }
 .earn-card:hover { border-color: var(--gold-border); transform: translateY(-3px); }
 .earn-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); opacity: 0; transition: opacity 0.2s; }
 .earn-card:hover::before { opacity: 1; }
