@@ -617,17 +617,18 @@ function submitForm() {
 
   const formData = new FormData();
   formData.append('Reference', refNum);
-  formData.append('Ambassador Name', name);
+  formData.append('First Name', name);
+  formData.append('Last Name', lastName);
   formData.append('Email', email);
   formData.append('Phone', phone);
   formData.append('Date', date);
-  formData.append('College', college);
-  formData.append('Chapter', chapter);
+  formData.append('University / College', college);
   formData.append('Instagram', ig);
   formData.append('Referred By', referred);
-  formData.append('Agreements Accepted', 'Sign Up Form & Responsibilities, SIP Terms, CRM Reporting Requirements, Brand Standards');
+  formData.append('About', message);
+  formData.append('Agreements Accepted', 'Sign Up Form & Responsibilities, Social Media Incentives Terms, CRM Reporting Requirements, Brand Standards');
   formData.append('Signature', 'Signed electronically on ' + date);
-  formData.append('_subject', 'New Greek Empire Ambassador Application — ' + name);
+  formData.append('_subject', 'New Greek Empire Ambassador Application — ' + name + ' ' + lastName);
 
   fetch(FORMSPREE_ENDPOINT, {
     method: 'POST',
